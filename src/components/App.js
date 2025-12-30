@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import Todo from "./Todo";
 import "./../styles/App.css";
 
 const App = () => {
-  const [todos, setTodos] = useState(["Task 1", "Task 2"]);
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
   const addTodo = () => {
@@ -17,8 +18,6 @@ const App = () => {
 
   return (
     <div id="main">
-      {/* Do not remove the main div */}
-
       <h1>To-Do List</h1>
 
       <input
@@ -29,14 +28,7 @@ const App = () => {
 
       <button onClick={addTodo}>Add Todo</button>
 
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            {todo}
-            <button onClick={() => deleteTodo(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <Todo todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 };
