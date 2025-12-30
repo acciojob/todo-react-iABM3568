@@ -12,12 +12,11 @@ const App = () => {
   };
 
   const deleteTodo = (index) => {
-    const newTodos = todos.filter((_, i) => i !== index);
-    setTodos(newTodos);
+    setTodos(todos.filter((_, i) => i !== index));
   };
 
   return (
-    <div>
+    <div id="main">
       {/* Do not remove the main div */}
 
       <h1>To-Do List</h1>
